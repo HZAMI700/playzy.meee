@@ -39,12 +39,25 @@
     --accent-glow: rgba(99, 102, 241, 0.25);
   }
 
+  html {
+    color-scheme: light;
+  }
+
+  html.dark {
+    color-scheme: dark;
+  }
+
   body {
-    background-color: var(--bg-main);
-    color: var(--text-primary);
+    background-color: #f8fafc;
+    color: #0f172a;
     font-family: var(--font-sans);
     transition: background-color 0.2s ease, color 0.2s ease;
     overflow-x: hidden;
+  }
+
+  .dark body, body.dark {
+    background-color: #090d16;
+    color: #f8fafc;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -55,29 +68,15 @@
 
 /* Custom Utilities & Components */
 .glass-panel {
-  background: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
 
 .dark .glass-panel {
-  background: rgba(17, 24, 39, 0.75);
+  background: rgba(17, 24, 39, 0.85);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-}
-
-.gradient-text {
-  background: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.gradient-border {
-  position: relative;
-  border-radius: 1rem;
-  background: linear-gradient(var(--bg-card), var(--bg-card)) padding-box,
-              linear-gradient(135deg, rgba(99,102,241,0.5), rgba(236,72,153,0.5)) border-box;
-  border: 1px solid transparent;
 }
 
 .prose-custom {
@@ -126,15 +125,11 @@
 }
 
 .prose-custom a {
-  color: #6366f1;
+  color: #4f46e5;
   text-decoration: underline;
   text-underline-offset: 4px;
   font-weight: 500;
   transition: color 0.15s ease;
-}
-
-.prose-custom a:hover {
-  color: #4f46e5;
 }
 
 .prose-custom blockquote {
@@ -146,21 +141,6 @@
   margin-bottom: 1.5rem;
 }
 
-.prose-custom code {
-  background-color: rgba(99, 102, 241, 0.1);
-  color: #6366f1;
-  padding: 0.2rem 0.4rem;
-  border-radius: 0.25rem;
-  font-size: 0.9em;
-  font-family: monospace;
-}
-
-.dark .prose-custom code {
-  background-color: rgba(99, 102, 241, 0.2);
-  color: #a5b4fc;
-}
-
-/* Direct Answer TL;DR Box */
 .tldr-box {
   background: linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, rgba(168, 85, 247, 0.06) 100%);
   border: 1px solid rgba(99, 102, 241, 0.25);

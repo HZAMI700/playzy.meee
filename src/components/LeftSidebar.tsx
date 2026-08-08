@@ -3,87 +3,59 @@
 import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Home, Info, Mail, Menu, ShieldCheck, FileText, Sparkles } from 'lucide-react';
+import { Home, User, Mail, Folder, Plus, Menu } from 'lucide-react';
 
 export function LeftSidebar() {
   const pathname = usePathname();
 
   const navItems = [
-    { label: 'Home', href: '/', icon: <Home className="w-4 h-4" /> },
-    { label: 'About', href: '/about', icon: <Info className="w-4 h-4" /> },
-    { label: 'Contact', href: '/about', icon: <Mail className="w-4 h-4" /> },
-    { label: 'Review Standards', href: '/about', icon: <ShieldCheck className="w-4 h-4 text-emerald-500" /> },
+    { label: 'Home', href: '/', icon: <Home className="w-5 h-5" /> },
+    { label: 'About', href: '/about', icon: <User className="w-5 h-5" /> },
+    { label: 'Contact', href: '/about', icon: <Mail className="w-5 h-5" /> },
+    { label: 'Custom menu', href: '/about', icon: <Folder className="w-5 h-5" /> },
   ];
 
   return (
-    <aside className="w-64 shrink-0 hidden lg:flex flex-col justify-between min-h-screen p-6 border-r border-slate-200/80 dark:border-slate-800/80 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md sticky top-0 h-screen transition-colors">
-      <div className="space-y-8">
-        {/* Brand Logo */}
-        <Link href="/" className="flex items-center gap-2 group">
-          <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-blue-600 via-indigo-600 to-purple-600 flex items-center justify-center text-white font-extrabold text-lg shadow-md group-hover:scale-105 transition-transform">
-            p
-          </div>
-          <span className="font-display font-extrabold text-2xl tracking-tight text-slate-900 dark:text-white">
-            playzy<span className="text-blue-600 dark:text-blue-400">.me</span>
-          </span>
-        </Link>
+    <aside className="w-16 sm:w-20 shrink-0 flex flex-col justify-between min-h-screen py-6 items-center border-r border-slate-200/80 dark:border-slate-800/80 bg-white dark:bg-slate-900 sticky top-0 h-screen transition-colors">
+      <div className="space-y-8 flex flex-col items-center">
+        {/* Top Menu Icon */}
+        <button
+          aria-label="Menu Toggle"
+          className="p-2.5 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200 transition-colors"
+        >
+          <Menu className="w-5 h-5" />
+        </button>
 
-        {/* Sidebar Nav Links */}
-        <nav className="space-y-2">
+        {/* Vertical Icon Navigation matching screenshot */}
+        <nav className="flex flex-col items-center gap-6">
           {navItems.map((item) => {
             const isActive = pathname === item.href;
             return (
               <Link
                 key={item.label}
                 href={item.href}
-                className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all ${
+                title={item.label}
+                className={`p-2.5 rounded-xl transition-all ${
                   isActive
-                    ? 'bg-slate-100 dark:bg-slate-800 text-blue-600 dark:text-blue-400 font-semibold'
-                    : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-800/50'
+                    ? 'bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 font-bold shadow-sm'
+                    : 'text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800'
                 }`}
               >
                 {item.icon}
-                <span>{item.label}</span>
               </Link>
             );
           })}
         </nav>
       </div>
 
-      {/* Sidebar Bottom Footer & Social Icons */}
-      <div className="space-y-4 pt-6 border-t border-slate-200/80 dark:border-slate-800/80">
-        <div className="flex items-center flex-wrap gap-2 text-xs text-slate-500 dark:text-slate-400 font-medium">
-          <Link href="/sitemap.xml" className="hover:text-blue-600 dark:hover:text-blue-400">
-            Sitemap
-          </Link>
-          <span>·</span>
-          <Link href="/disclaimer" className="hover:text-blue-600 dark:hover:text-blue-400">
-            Disclaimer
-          </Link>
-          <span>·</span>
-          <Link href="/privacy" className="hover:text-blue-600 dark:hover:text-blue-400">
-            Privacy
-          </Link>
-        </div>
-
-        {/* Social Icons matching screenshot */}
-        <div className="flex items-center gap-3 text-slate-400 dark:text-slate-500 text-xs">
-          <a href="https://facebook.com" target="_blank" rel="noreferrer" className="hover:text-blue-600 transition-colors" aria-label="Facebook">
-            FB
-          </a>
-          <a href="https://instagram.com" target="_blank" rel="noreferrer" className="hover:text-pink-600 transition-colors" aria-label="Instagram">
-            IG
-          </a>
-          <a href="https://tiktok.com" target="_blank" rel="noreferrer" className="hover:text-slate-900 dark:hover:text-white transition-colors" aria-label="TikTok">
-            TK
-          </a>
-          <a href="https://whatsapp.com" target="_blank" rel="noreferrer" className="hover:text-emerald-500 transition-colors" aria-label="WhatsApp">
-            WA
-          </a>
-          <a href="https://telegram.org" target="_blank" rel="noreferrer" className="hover:text-sky-500 transition-colors" aria-label="Telegram">
-            TG
-          </a>
-        </div>
+      {/* Bottom Plus Icon Button matching screenshot */}
+      <div className="flex flex-col items-center">
+        <button
+          aria-label="Add Action"
+          className="p-3 rounded-2xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 transition-colors shadow-sm"
+        >
+          <Plus className="w-5 h-5" />
+        </button>
       </div>
     </aside>
   );
