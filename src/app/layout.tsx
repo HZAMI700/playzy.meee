@@ -2,7 +2,8 @@ import type { Metadata } from 'next';
 import { Outfit, Plus_Jakarta_Sans } from 'next/font/google';
 import './globals.css';
 import { ThemeProvider } from '@/components/ThemeProvider';
-import { Header } from '@/components/Header';
+import { LeftSidebar } from '@/components/LeftSidebar';
+import { TopBar } from '@/components/TopBar';
 import { Footer } from '@/components/Footer';
 import { AnalyticsPlaceholder } from '@/components/AnalyticsPlaceholder';
 
@@ -39,11 +40,6 @@ export const metadata: Metadata = {
   authors: [{ name: 'Playzy Editorial Team', url: 'https://playzy.me/about' }],
   creator: 'playzy.me',
   publisher: 'playzy.me',
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
   openGraph: {
     type: 'website',
     locale: 'en_US',
@@ -71,13 +67,6 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
   },
   alternates: {
     canonical: 'https://playzy.me',
@@ -91,11 +80,18 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${outfit.variable} ${plusJakarta.variable}`} suppressHydrationWarning>
-      <body className="min-h-screen flex flex-col antialiased selection:bg-indigo-500 selection:text-white">
+      <body className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex antialiased selection:bg-blue-500 selection:text-white">
         <ThemeProvider>
-          <Header />
-          <main className="flex-1">{children}</main>
-          <Footer />
+          {/* Left Sidebar (Fixed on Left) */}
+          <LeftSidebar />
+
+          {/* Main Content Column */}
+          <div className="flex-1 flex flex-col min-w-0">
+            <TopBar />
+            <main className="flex-1 px-4 sm:px-8 py-8">{children}</main>
+            <Footer />
+          </div>
+
           <AnalyticsPlaceholder />
         </ThemeProvider>
       </body>
