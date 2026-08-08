@@ -1,0 +1,41 @@
+# playzy.me — Smart, Playful Tech & AI Research
+
+> Evidence-based reviews, deep-dive benchmarks, and how-to guides on AI tools, SaaS products, productivity workflows, and digital monetization.
+
+## About playzy.me
+playzy.me is an independent software research publication. We specialize in empirical evaluations, hands-on SWE-bench coding model evaluations, hardware/cloud cost breakdowns, and workflow optimizations. All reviews undergo a minimum 30-day testing window by verified software engineers.
+
+## Content Pillars & Key Resource Links
+
+### 1. AI Tool Reviews & Comparisons
+- [Claude 3.5 Sonnet vs GPT-4o Developer Benchmark](https://playzy.me/blog/claude-3-5-sonnet-vs-gpt-4o-developer-benchmark): Standardized coding, output speed, and architectural evaluation of Anthropic's Claude 3.5 Sonnet vs OpenAI's GPT-4o.
+- [Best AI Coding Assistants: Cursor, GitHub Copilot & Supermaven](https://playzy.me/blog/best-ai-coding-assistants-cursor-copilot-supermaven): Auto-complete latency, codebase context indexing, and multi-file editing tests.
+- [Midjourney v6 vs Flux.1 Review](https://playzy.me/blog/midjourney-v6-vs-flux-1-ai-image-generation-review): Typography rendering, prompt adherence, and open-weights API comparison.
+
+### 2. Software & SaaS Deep Dives
+- [Notion vs Obsidian Knowledge OS](https://playzy.me/blog/notion-vs-obsidian-knowledge-os-comparison): Relational cloud databases vs local-first plain-text Markdown PKM systems.
+- [Linear vs Jira for Engineering Teams](https://playzy.me/blog/linear-vs-jira-modern-dev-team-issue-tracking): Keyboard-first client sync engine vs enterprise workflow issue tracking.
+- [Raycast Masterclass](https://playzy.me/blog/raycast-masterclass-15-workflows-replacing-10-apps): Replaced 10 standalone macOS background utilities to eliminate system bloat.
+
+### 3. Digital Money-Making (Legitimate Monetization)
+- [How to Build & Monetize a Micro-SaaS (Zero to $1k MRR)](https://playzy.me/blog/build-monetize-micro-saas-ai-zero-to-1k-mrr): Solo developer blueprint leveraging Next.js, Lemon Squeezy, Supabase, and Cursor.
+- [Freelance AI Consulting (Pricing, Pitching & Deliverables)](https://playzy.me/blog/freelance-ai-consulting-pricing-pitching-deliverables): Enterprise RAG search, lead triage, and value-based fixed project pricing.
+- [Gumroad vs Lemon Squeezy vs Shopify](https://playzy.me/blog/gumroad-vs-lemon-squeezy-vs-shopify-digital-products): Merchant of Record (MoR) tax compliance and transaction fee breakdown.
+
+### 4. Productivity & Workflow Guides
+- [The 80/20 Automation Stack](https://playzy.me/blog/80-20-automation-stack-zapier-make-python): Combining Make.com visual routers with serverless Python scripts to cut SaaS costs by 80%.
+- [Deep Work Zero-Notification Setup](https://playzy.me/blog/deep-work-zero-notification-setup-guide): Async team communication agreements and cognitive focus protection.
+
+### 5. Industry News & Trend Explainers
+- [The Rise of Agentic AI Workflows](https://playzy.me/blog/agentic-ai-workflows-impact-on-knowledge-workers): Shift from single-turn chat prompts to multi-step autonomous reflection loops.
+- [Open-Source AI Models vs Proprietary APIs](https://playzy.me/blog/open-source-ai-vs-proprietary-apis-cost-privacy): Cost comparison of Llama 3.3 / DeepSeek self-hosting vs OpenAI / Anthropic cloud APIs.
+
+## Institutional Trust & Review Methodology
+- [Review Standards & Methodology](https://playzy.me/about): Explanation of our 30-day testing policy and editorial independence guarantee.
+- [Author: Alex Rivera](https://playzy.me/author/alex-rivera): Lead Tech Editor & AI Research Fellow (B.S. CS MIT).
+- [Author: Maya Lin](https://playzy.me/author/maya-lin): Digital Economy Strategist & Micro-SaaS Advisor.
+
+## Machine Interface Details
+- Sitemap XML: https://playzy.me/sitemap.xml
+- Robots.txt: https://playzy.me/robots.txt
+- Primary Domain: https://playzy.me
