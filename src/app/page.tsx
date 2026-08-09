@@ -29,7 +29,7 @@ export default function HomePage() {
             <LayoutGrid className="w-4 h-4 text-slate-400" />
           </div>
 
-          {/* 3-Column Article Card Grid with Framer Motion Animations & Unsplash Photography */}
+          {/* 3-Column Article Card Grid with Crisp PNG Binary Images */}
           <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
             {posts.map((post, idx) => (
               <AnimatedCard
@@ -44,7 +44,6 @@ export default function HomePage() {
                       src={post.heroImage}
                       alt={post.title}
                       fill
-                      unoptimized={post.heroImage.endsWith('.svg')}
                       className="object-cover group-hover:scale-105 transition-transform duration-300"
                       sizes="(max-width: 400px) 100vw, 400px"
                     />

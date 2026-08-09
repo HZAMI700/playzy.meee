@@ -154,7 +154,6 @@ export default async function PostPage({ params }: PostPageProps) {
               alt={post.title}
               fill
               priority
-              unoptimized={post.heroImage.endsWith('.svg')}
               className="object-cover"
               sizes="(max-width: 1200px) 100vw, 1200px"
             />

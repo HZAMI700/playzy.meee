@@ -18,7 +18,7 @@ export function PopularPosts() {
         <LayoutGrid className="w-4 h-4 text-slate-400" />
       </div>
 
-      {/* Ranked List 01 to 05 with Thumbnail Images */}
+      {/* Ranked List 01 to 05 with PNG Thumbnail Images */}
       <div className="space-y-4">
         {posts.map((post, idx) => {
           const numStr = String(idx + 1).padStart(2, '0');
@@ -31,7 +31,6 @@ export function PopularPosts() {
                     src={post.heroImage}
                     alt={post.title}
                     fill
-                    unoptimized={post.heroImage.endsWith('.svg')}
                     className="object-cover group-hover:scale-105 transition-transform duration-200"
                     sizes="56px"
                   />
