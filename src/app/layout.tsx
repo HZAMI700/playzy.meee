@@ -33,10 +33,17 @@ export const metadata: Metadata = {
     'Make Money Online',
     'Productivity Workflows',
     'Claude vs GPT-4o',
+    'vLLM vs Ollama',
+    'Cursor vs Windsurf',
     'Developer Tools',
     'Agentic AI',
     'playzy.me',
   ],
+  icons: {
+    icon: '/favicon.svg',
+    shortcut: '/favicon.svg',
+    apple: '/favicon.svg',
+  },
   authors: [{ name: 'Playzy Editorial Team', url: 'https://playzy.me/about' }],
   creator: 'playzy.me',
   publisher: 'playzy.me',
@@ -50,7 +57,7 @@ export const metadata: Metadata = {
       'Evidence-based reviews and hands-on benchmarks of AI tools, productivity software, and digital monetization strategies.',
     images: [
       {
-        url: 'https://images.unsplash.com/photo-1677442136019-21780efad99a?q=80&w=1200&auto=format&fit=crop',
+        url: '/logo.svg',
         width: 1200,
         height: 630,
         alt: 'playzy.me — Smart Tech & AI Research',
@@ -82,7 +89,7 @@ export default function RootLayout({
     <html lang="en" className={`light ${outfit.variable} ${plusJakarta.variable}`} suppressHydrationWarning>
       <body className="min-h-screen bg-slate-50 text-slate-900 flex flex-col md:flex-row antialiased selection:bg-blue-500 selection:text-white">
         <ThemeProvider>
-          {/* Left Sidebar (Hidden on mobile, visible on desktop) */}
+          {/* Left Sidebar */}
           <LeftSidebar />
 
           {/* Main Content Column */}

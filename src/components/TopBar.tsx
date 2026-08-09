@@ -2,8 +2,9 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { Search, User, Menu, X, Home, Info, Mail, Folder, ShieldCheck } from 'lucide-react';
+import { Search, User, Menu, X, Home, Info, ShieldCheck } from 'lucide-react';
 import { ThemeToggle } from './ThemeToggle';
 import { CATEGORIES } from '@/lib/categories';
 
@@ -23,7 +24,7 @@ export function TopBar() {
   return (
     <header className="sticky top-0 z-40 bg-white border-b border-slate-200 shadow-xs transition-colors">
       <div className="px-4 sm:px-8 py-3.5 flex items-center justify-between gap-3">
-        {/* Mobile Menu Toggle + Brand Logo */}
+        {/* Mobile Menu Toggle + Official Brand Logo */}
         <div className="flex items-center gap-3">
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -34,28 +35,31 @@ export function TopBar() {
           </button>
 
           <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white font-extrabold text-base shadow-xs">
-              p
+            <div className="relative w-36 h-9">
+              <Image
+                src="/logo.svg"
+                alt="playzy.me Official Brand Logo"
+                fill
+                priority
+                className="object-contain"
+              />
             </div>
-            <span className="font-display font-extrabold text-2xl tracking-tight text-slate-900">
-              playzy
-            </span>
           </Link>
         </div>
 
-        {/* Search Pill Input matching screenshot (Visible on desktop & tablet) */}
+        {/* Search Pill Input */}
         <form onSubmit={handleSearch} className="relative hidden sm:block w-56 md:w-80">
           <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
           <input
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="Try 'Adventure'..."
+            placeholder="Search AI tools, SaaS & workflows..."
             className="w-full pl-10 pr-4 py-2 rounded-full bg-slate-100 text-slate-800 placeholder-slate-400 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all"
           />
         </form>
 
-        {/* Top Category Tag Links matching screenshot (Desktop) */}
+        {/* Top Category Tag Links */}
         <nav className="hidden lg:flex items-center gap-6 text-xs font-medium text-slate-600">
           {CATEGORIES.map((cat) => (
             <Link
@@ -81,7 +85,7 @@ export function TopBar() {
         </div>
       </div>
 
-      {/* Horizontal Scrollable Category Bar for Mobile & Tablet */}
+      {/* Horizontal Scrollable Category Bar for Mobile */}
       <div className="flex lg:hidden overflow-x-auto px-4 py-2 bg-slate-50 border-t border-slate-100 gap-2 scrollbar-none text-xs font-medium text-slate-600">
         {CATEGORIES.map((cat) => (
           <Link
@@ -125,7 +129,7 @@ export function TopBar() {
               className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-semibold text-slate-800 hover:bg-slate-50"
             >
               <Info className="w-4 h-4 text-indigo-600" />
-              About
+              About Us
             </Link>
             <Link
               href="/about"

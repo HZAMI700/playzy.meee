@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 100" width="100%" height="100%">
+  <defs>
+    <linearGradient id="playzyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2563eb" />
+      <stop offset="50%" stop-color="#4f46e5" />
+      <stop offset="100%" stop-color="#7c3aed" />
+    </linearGradient>
+  </defs>
+  <!-- Logo Icon Badge -->
+  <rect x="10" y="15" width="70" height="70" rx="22" fill="url(#playzyGrad)" />
+  <path d="M35 30 L60 50 L35 70 Z" fill="#ffffff" />
+  <circle cx="55" cy="35" r="5" fill="#38bdf8" />
+  <!-- Logo Text -->
+  <text x="100" y="65" font-family="system-ui, -apple-system, sans-serif" font-size="46" font-weight="900" fill="#0f172a" letter-spacing="-1.5">playzy<tspan fill="#2563eb">.me</tspan></text>
+</svg>
