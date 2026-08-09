@@ -16,15 +16,16 @@ export function LeftSidebar() {
   ];
 
   return (
-    <aside className="w-16 sm:w-20 shrink-0 flex flex-col justify-between min-h-screen py-6 items-center border-r border-slate-200/80 dark:border-slate-800/80 bg-white dark:bg-slate-900 sticky top-0 h-screen transition-colors">
+    <aside className="w-16 sm:w-20 shrink-0 hidden md:flex flex-col justify-between min-h-screen py-6 items-center border-r border-slate-200 bg-white sticky top-0 h-screen transition-colors z-30">
       <div className="space-y-8 flex flex-col items-center">
         {/* Top Menu Icon */}
-        <button
-          aria-label="Menu Toggle"
-          className="p-2.5 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200 transition-colors"
+        <Link
+          href="/"
+          aria-label="Home Logo"
+          className="p-2.5 rounded-xl hover:bg-slate-100 text-slate-700 transition-colors"
         >
           <Menu className="w-5 h-5" />
-        </button>
+        </Link>
 
         {/* Vertical Icon Navigation matching screenshot */}
         <nav className="flex flex-col items-center gap-6">
@@ -37,8 +38,8 @@ export function LeftSidebar() {
                 title={item.label}
                 className={`p-2.5 rounded-xl transition-all ${
                   isActive
-                    ? 'bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 font-bold shadow-sm'
-                    : 'text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800'
+                    ? 'bg-blue-50 text-blue-600 font-bold shadow-xs'
+                    : 'text-slate-400 hover:text-slate-700 hover:bg-slate-100'
                 }`}
               >
                 {item.icon}
@@ -52,7 +53,7 @@ export function LeftSidebar() {
       <div className="flex flex-col items-center">
         <button
           aria-label="Add Action"
-          className="p-3 rounded-2xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 transition-colors shadow-sm"
+          className="p-3 rounded-2xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors shadow-xs cursor-pointer"
         >
           <Plus className="w-5 h-5" />
         </button>

@@ -9,7 +9,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       attribute="class"
       defaultTheme="light"
       enableSystem={false}
-      forcedTheme={undefined}
+      storageKey="playzy-theme-v2"
     >
       {children}
     </NextThemesProvider>

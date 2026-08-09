@@ -50,7 +50,7 @@ export const metadata: Metadata = {
       'Evidence-based reviews and hands-on benchmarks of AI tools, productivity software, and digital monetization strategies.',
     images: [
       {
-        url: 'https://playzy.me/og-image.jpg',
+        url: 'https://images.unsplash.com/photo-1677442136019-21780efad99a?q=80&w=1200&auto=format&fit=crop',
         width: 1200,
         height: 630,
         alt: 'playzy.me — Smart Tech & AI Research',
@@ -79,16 +79,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${outfit.variable} ${plusJakarta.variable}`} suppressHydrationWarning>
-      <body className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex antialiased selection:bg-blue-500 selection:text-white">
+    <html lang="en" className={`light ${outfit.variable} ${plusJakarta.variable}`} suppressHydrationWarning>
+      <body className="min-h-screen bg-slate-50 text-slate-900 flex flex-col md:flex-row antialiased selection:bg-blue-500 selection:text-white">
         <ThemeProvider>
-          {/* Left Sidebar (Fixed on Left) */}
+          {/* Left Sidebar (Hidden on mobile, visible on desktop) */}
           <LeftSidebar />
 
           {/* Main Content Column */}
-          <div className="flex-1 flex flex-col min-w-0">
+          <div className="flex-1 flex flex-col min-w-0 bg-white">
             <TopBar />
-            <main className="flex-1 px-4 sm:px-8 py-8">{children}</main>
+            <main className="flex-1 px-4 sm:px-8 py-6 md:py-8 bg-white">{children}</main>
             <Footer />
           </div>
 
