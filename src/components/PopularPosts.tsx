@@ -31,6 +31,7 @@ export function PopularPosts() {
                     src={post.heroImage}
                     alt={post.title}
                     fill
+                    unoptimized={post.heroImage.endsWith('.svg')}
                     className="object-cover group-hover:scale-105 transition-transform duration-200"
                     sizes="56px"
                   />

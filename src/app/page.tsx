@@ -44,6 +44,7 @@ export default function HomePage() {
                       src={post.heroImage}
                       alt={post.title}
                       fill
+                      unoptimized={post.heroImage.endsWith('.svg')}
                       className="object-cover group-hover:scale-105 transition-transform duration-300"
                       sizes="(max-width: 400px) 100vw, 400px"
                     />
