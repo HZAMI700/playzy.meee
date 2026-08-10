@@ -1,11 +1,11 @@
 import type { Metadata } from 'next';
 import { Outfit, Plus_Jakarta_Sans } from 'next/font/google';
+import Script from 'next/script';
 import './globals.css';
 import { ThemeProvider } from '@/components/ThemeProvider';
 import { LeftSidebar } from '@/components/LeftSidebar';
 import { TopBar } from '@/components/TopBar';
 import { Footer } from '@/components/Footer';
-import { AnalyticsPlaceholder } from '@/components/AnalyticsPlaceholder';
 
 const outfit = Outfit({
   subsets: ['latin'],
@@ -87,6 +87,32 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`light ${outfit.variable} ${plusJakarta.variable}`} suppressHydrationWarning>
+      <head>
+        {/* Google AdSense Script */}
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1227503577553311"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
+
+        {/* Google Analytics GA4 Script (G-JHC3KQ92X6) */}
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-JHC3KQ92X6"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-JHC3KQ92X6', {
+              page_path: window.location.pathname,
+            });
+          `}
+        </Script>
+      </head>
       <body className="min-h-screen bg-slate-50 text-slate-900 flex flex-col md:flex-row antialiased selection:bg-blue-500 selection:text-white">
         <ThemeProvider>
           {/* Left Sidebar */}
@@ -98,8 +124,6 @@ export default function RootLayout({
             <main className="flex-1 px-4 sm:px-8 py-6 md:py-8 bg-white">{children}</main>
             <Footer />
           </div>
-
-          <AnalyticsPlaceholder />
         </ThemeProvider>
       </body>
     </html>
