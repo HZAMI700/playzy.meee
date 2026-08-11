@@ -12,7 +12,7 @@ export function MDXRenderer({ content }: MDXRendererProps) {
   const paragraphs = content.split('\n\n');
 
   return (
-    <div className="prose-custom space-y-6">
+    <div className="prose-custom space-y-6 text-slate-800 dark:text-slate-200">
       {paragraphs.map((block, idx) => {
         const trimmed = block.trim();
         if (!trimmed) return null;
@@ -62,12 +62,31 @@ export function MDXRenderer({ content }: MDXRendererProps) {
           return <AdSlot key={idx} position={pos} />;
         }
 
-        // Headings - High Contrast slate-900
+        // Markdown Images: ![Alt Text](url)
+        if (trimmed.startsWith('![')) {
+          const imgMatch = trimmed.match(/^!\[(.*?)\]\((.*?)\)$/);
+          if (imgMatch) {
+            const alt = imgMatch[1];
+            const src = imgMatch[2];
+            return (
+              <figure key={idx} className="my-8 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-md bg-slate-100 dark:bg-slate-900">
+                <img src={src} alt={alt} className="w-full h-auto object-cover max-h-[520px]" />
+                {alt && (
+                  <figcaption className="p-3 text-center text-xs font-medium text-slate-500 dark:text-slate-400 italic bg-slate-50 dark:bg-slate-900/80 border-t border-slate-100 dark:border-slate-800">
+                    {alt}
+                  </figcaption>
+                )}
+              </figure>
+            );
+          }
+        }
+
+        // Headings - High Contrast slate-900 / white
         if (trimmed.startsWith('## ')) {
           const headingText = trimmed.replace('## ', '').replace(/[*_`]/g, '');
           const id = headingText.toLowerCase().replace(/[^\w\s-]/g, '').replace(/\s+/g, '-');
           return (
-            <h2 key={idx} id={id} className="text-2xl font-extrabold text-slate-900 dark:text-white pt-6 border-t border-slate-200 dark:border-slate-800">
+            <h2 key={idx} id={id} className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white pt-6 border-t border-slate-200 dark:border-slate-800">
               {headingText}
             </h2>
           );
@@ -77,7 +96,7 @@ export function MDXRenderer({ content }: MDXRendererProps) {
           const headingText = trimmed.replace('### ', '').replace(/[*_`]/g, '');
           const id = headingText.toLowerCase().replace(/[^\w\s-]/g, '').replace(/\s+/g, '-');
           return (
-            <h3 key={idx} id={id} className="text-xl font-bold text-slate-900 dark:text-slate-100 pt-4">
+            <h3 key={idx} id={id} className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-slate-100 pt-4">
               {headingText}
             </h3>
           );
@@ -86,7 +105,7 @@ export function MDXRenderer({ content }: MDXRendererProps) {
         // Blockquotes
         if (trimmed.startsWith('> ')) {
           return (
-            <blockquote key={idx} className="border-l-4 border-blue-600 pl-4 py-2 my-4 italic text-slate-700 dark:text-slate-300 bg-slate-50 dark:bg-slate-900 rounded-r-lg">
+            <blockquote key={idx} className="border-l-4 border-blue-600 pl-4 py-3 my-6 italic text-slate-800 dark:text-slate-200 bg-slate-50 dark:bg-slate-900/60 rounded-r-lg">
               {trimmed.replace(/^>\s+/, '')}
             </blockquote>
           );
@@ -116,7 +135,7 @@ export function MDXRenderer({ content }: MDXRendererProps) {
           );
         }
 
-        // Standard Paragraph - High Contrast slate-800
+        // Standard Paragraph - High Contrast slate-800 / dark:text-slate-200
         return (
           <p
             key={idx}
@@ -130,9 +149,11 @@ export function MDXRenderer({ content }: MDXRendererProps) {
 }
 
 function formatInlineMarkdown(text: string): string {
-  return text
-    .replace(/\*\*(.*?)\*\*/g, '<strong className="font-bold text-slate-900 dark:text-white">$1</strong>')
-    .replace(/\*(.*?)\*/g, '<em>$1</em>')
-    .replace(/`([^`]+)`/g, '<code className="px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-blue-700 dark:text-blue-300 font-mono text-sm font-semibold">$1</code>')
-    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" className="text-blue-600 dark:text-blue-400 font-semibold underline underline-offset-4 hover:text-blue-700 transition-colors">$1</a>');
+  let processed = text.replace(/!\[(.*?)\]\((.*?)\)/g, '<img src="$2" alt="$1" class="my-4 rounded-xl max-w-full h-auto border border-slate-200 dark:border-slate-800 shadow-sm" />');
+
+  return processed
+    .replace(/\*\*(.*?)\*\*/g, '<strong class="font-bold text-slate-900 dark:text-white">$1</strong>')
+    .replace(/\*(.*?)\*/g, '<em class="italic text-slate-800 dark:text-slate-200">$1</em>')
+    .replace(/`([^`]+)`/g, '<code class="px-1.5 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-blue-700 dark:text-blue-300 font-mono text-sm font-semibold border border-slate-200/60 dark:border-slate-700/60">$1</code>')
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="text-blue-600 dark:text-blue-400 font-semibold underline underline-offset-4 hover:text-blue-700 dark:hover:text-blue-300 transition-colors">$1</a>');
 }

@@ -24,12 +24,12 @@ export function AdSlot({ position, className = '' }: AdSlotProps) {
 
   return (
     <div
-      className={`my-6 p-2 rounded-xl border border-slate-200 bg-slate-50 text-center transition-all ${className}`}
+      className={`my-6 p-2 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 text-center transition-all w-full max-w-full overflow-hidden min-h-[90px] min-w-0 ${className}`}
       data-ad-position={position}
     >
       <ins
         className="adsbygoogle"
-        style={{ display: 'block' }}
+        style={{ display: 'block', width: '100%', maxWidth: '100%', overflow: 'hidden' }}
         data-ad-client={ADSENSE_PUB_ID}
         data-ad-slot="1234567890"
         data-ad-format="auto"
